@@ -16,7 +16,9 @@
     "tailwind:build": "NODE_ENV=production tailwindcss -i src/styles/tailwind.css -o src/styles/index.css --minify",
     "prebuild": " npm run tailwind:build",
     "build": "react-scripts build",
-    "inline": "npm run build && gulp"
+    "inline": "npm run build && gulp",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "keywords": [],
   "browserslist": {
@@ -39,10 +41,22 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.1",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.0.24",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-interactions": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/node-logger": "^6.5.15",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.15",
+    "@storybook/testing-library": "^0.0.13",
     "autoprefixer": "^10.4.4",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "eslint": "8.13.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
@@ -54,6 +68,20 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.12",
     "prettier": "^2.6.2",
-    "prettier-plugin-tailwindcss": "^0.1.8"
+    "prettier-plugin-tailwindcss": "^0.1.8",
+    "prop-types": "^15.8.1",
+    "webpack": "^5.75.0"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   }
 }
